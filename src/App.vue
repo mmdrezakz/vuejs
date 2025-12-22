@@ -8,11 +8,17 @@ import { reactive, ref } from 'vue';
   })
   let urlImage = "https://static.vecteezy.com/system/browse_category/image/50/large_Backgrounds_cb1.jpg"
   let toggleColor = ref(false)
+  let search = ref("")
+  let isChecked = ref(false)
 </script>
 
 <template>
   <header>
     <h1 class="text-5xl">Hello Vue Js  : {{Name}}</h1>
+    <input class="bg-black shadow-blue-700 shadow-sm my-5 px-2 rounded-sm ring-4 ring-blue-700 text-white"  type="text" placeholder="Search ..." v-model="search"/>
+    <div>{{ search}}</div>
+    <input type="checkbox" v-model="isChecked" />
+    <div>{{isChecked ? "Active": "Not Active"}}</div>
     <div class="img-container">
       <img id="img-1" v-bind:src="urlImage"/>
 
