@@ -15,7 +15,8 @@ import { reactive, ref } from 'vue';
 <template>
   <header>
     <h1 class="text-5xl">Hello Vue Js  : {{Name}}</h1>
-    <input class="bg-black shadow-blue-700 shadow-sm my-5 px-2 rounded-sm ring-4 ring-blue-700 text-white"  type="text" placeholder="Search ..." v-model="search"/>
+    <input class="bg-black shadow-blue-700 shadow-sm my-5 px-2 rounded-sm ring-4 ring-blue-700 text-white" v-if="isChecked" type="text" placeholder="Search ..." v-model="search"/>
+    <div v-else>Please Click Checkbox to Show SerchInput</div>
     <div>{{ search}}</div>
     <input type="checkbox" v-model="isChecked" />
     <div>{{isChecked ? "Active": "Not Active"}}</div>
