@@ -13,13 +13,16 @@ import { ref } from 'vue';
     }
   }
   const data =ref({id:1,name:"ahmad",age:34})
+  const username = ref("")
 </script>
 
 <template>
   <div>
+    <input class="rounded-2xl ring-4 ring-blue-600" type="text" v-model="username"/>
+    <p>{{username}}</p>
     <div>
       <ul>
-        <li v-for="(value,key) in data" v-bind:key="key">{{key}} - {{value}}</li>
+        <li  v-for="(value,key) in data" v-bind:key="key">{{key}} - {{value}}</li>
       </ul>
     </div>
     <form  class="flex flex-col justify-center items-center w-full h-screen">
