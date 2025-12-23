@@ -1,64 +1,36 @@
 <script setup>
-import { reactive, ref } from 'vue';
+import { ref } from 'vue';
 
-  const Name = ref("Mohammadreza")
-  const User = reactive({
-    firstName:"Mohammadreza",
-    lastName : "Kazemi"
-  })
-  let urlImage = "https://static.vecteezy.com/system/browse_category/image/50/large_Backgrounds_cb1.jpg"
-  let toggleColor = ref(false)
-  let search = ref("")
-  let isChecked = ref(false)
+  const num = ref(0)
+
+  function Increasement(){
+    return num.value ++
+  }
+  function Decreasement(){
+    if(num.value !== 0 ){
+
+      return num.value --
+    }
+  }
+  const data =ref({id:1,name:"ahmad",age:34})
 </script>
 
 <template>
-  <header>
-    <h1 class="text-5xl">Hello Vue Js  : {{Name}}</h1>
-    <input class="bg-black shadow-blue-700 shadow-sm my-5 px-2 rounded-sm ring-4 ring-blue-700 text-white" v-show="isChecked" type="text" placeholder="Search ..." v-model="search"/>
-    <div v-show="!isChecked">Please Click Checkbox to Show SerchInput</div>
-    <div>{{ search}}</div>
-    <input type="checkbox" v-model="isChecked" />
-    <div>{{isChecked ? "Active": "Not Active"}}</div>
-    <div class="img-container">
-      <img id="img-1" v-bind:src="urlImage"/>
-
+  <div>
+    <div>
+      <ul>
+        <li v-for="(value,key) in data" v-bind:key="key">{{key}} - {{value}}</li>
+      </ul>
     </div>
-  </header>
-  <p v-bind:style="{background:'orange',textAlign:'center',padding:'2rem'}">Style</p>
-  <p class="div-red">Style</p>
+    <form  class="flex flex-col justify-center items-center w-full h-screen">
+      <button @click.prevent="Increasement" class="bg-blue-600 p-2 rounded-2xl">Increase</button>
+      <p  class="my-5 px-2 rounded-2xl ring-2 ring-blue-500 text-center">{{num}}</p>
+      <button @click.prevent="Decreasement" class="bg-blue-600 p-2 rounded-2xl">Decrease</button>
 
-  <h2 v-bind:class="toggleColor?'div-blue':'div-red'">hey ,{{User.firstName}}{{User.lastName}} Im here to help!</h2>
-  <h3 v-bind:style="!toggleColor && {backgroundColor :'red'}">hey ,{{User.firstName}}{{User.lastName}} Im here to help!</h3>
-
+    </form>
+  </div>
 </template>
 
 <style scoped>
-h1{
-  background-color: rgb(37, 6, 6);
-  color: rgb(255, 255, 255);
-  padding: 2rem;
-  border-radius: 40px;
-  text-align: center;
-}
-.div-red{
-  text-align: center;
-  color: rgb(255, 0, 0);
-}
-.div-blue{
-  text-align: center;
-  color: rgb(72, 1, 236);
-}
-.img-container{
-  display: flex;
-  justify-content: center;
 
-}
-#img-1{
-  width: 400px;
-  height: 400px;
-  object-position: center;
-  border-radius: 40px;
-
-}
 </style>
