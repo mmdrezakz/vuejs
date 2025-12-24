@@ -1,5 +1,24 @@
 <script setup>
- import{Submithandler,Users,email,username} from './Loginstate'
+ import { reactive, watch, watchEffect } from 'vue';
+import{Submithandler,Users,email,username} from './Loginstate'
+
+ const Numbers = reactive(
+ [
+   {num:1,text:"yek"},
+   {num:2,text:"do"},
+   {num:3,text:"se"},
+   {num:4,text:"char"},
+   {num:5,text:"pang"},
+   {num:6,text:"shish"},
+])
+
+
+watchEffect(()=>{
+  console.log(username.value);
+  console.log(email.value);
+
+
+})
 </script>
 
 <template class="bg-amber-100 w-full h-screen">
@@ -9,7 +28,7 @@
         <label class="w-24">UserName</label>
         <input class="bg-white mx-4 px-2 rounded-2xl" type="text" placeholder="UserName" v-model="username"/>
       </div>
-        <div class="flex justify-center gap-3 my-2">
+      <div class="flex justify-center gap-3 my-2">
         <label class="w-24">Email</label>
         <input class="bg-white mx-4 px-2 rounded-2xl" type="text" placeholder="Email" v-model="email"/>
       </div>
@@ -26,6 +45,9 @@
       </div>
     </form>
   </div>
+  <ul class="flex justify-center items-center gap-3">
+    <li class="p-4" v-for="Number in Numbers" v-bind:key="Number.num">num :{{Number.num}} text : {{Number.text}}</li>
+  </ul>
 </template>
 
 <style scoped>
