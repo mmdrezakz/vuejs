@@ -1,18 +1,5 @@
 <script setup>
-import { ref } from 'vue';
-
-
-  const username = ref("")
-  const email = ref("")
-  const Users = ref([])
-
-  function Submithandler(){
-
-    Users.value.push({name:username.value,emailn:email.value})
-    email.value = ""
-    username.value = ""
-
-  }
+ import{Submithandler,Users,email,username} from './Loginstate'
 </script>
 
 <template class="bg-amber-100 w-full h-screen">
