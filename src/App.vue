@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
  import { reactive, watch, watchEffect } from 'vue';
 import{Submithandler,Users,email,username} from './Loginstate'
 
@@ -52,4 +52,13 @@ watchEffect(()=>{
 
 <style scoped>
 
-</style>
+</style> -->
+
+<script setup>
+import Parent from './Parent.vue';
+
+
+</script>
+<template>
+  <Parent />
+</template>
